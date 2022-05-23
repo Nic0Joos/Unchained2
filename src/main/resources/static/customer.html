@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Profile</title>
+    <link rel="icon" type="image/png" href="../assets/img/Favicon1.png">
+    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="../assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="../assets/css/vanilla-zoom.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/home">Unchained</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/user">Customer&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/shop">Product Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+                </ul><button class="btn btn-primary d-none" type="button">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <main class="page">
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Customer Profile</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
+                        <h4>Profile</h4>
+                        <form>
+                            <div class="mb-3"><label class="form-label" for="street">Street</label><input class="form-control" type="text" id="street" name="street"></div>
+                            <div class="mb-3"><label class="form-label" for="ZIPCode">ZIP Code</label><input class="form-control" type="text" id="ZIPCode" name="ZIPCode"></div>
+                            <div class="mb-3"><label class="form-label" for="city">City</label><input class="form-control" type="text" id="city"></div>
+                            <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password"></div>
+                            <div class="mb-3"></div>
+                        </form><button class="btn btn-primary" type="button">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/register">Sign up</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2022 Unchained</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>-->
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script language="JavaScript">
+    validateLogin(function (result) {
+        if (!result) {
+            window.location.replace("../login");
+        }
+    });
+    </script>
+
+    <script language="JavaScript">
+        $(document).ready(function () {
+            getProfile(function (result) {
+                $('input[street=street]').val(result["street"]);
+                $('input[ZIPCode=ZIPCode]').val(result["ZIPCode"]);
+                $('input[city=city]').val(result["city"]);
+            });
+
+            $("#form").submit(function (event) {
+                putProfile($('input[street=street]').val(), $('input[ZIPCode=ZIPCode]').val(), $('input[city=city]').val(), $('input[password=password]').val(), function (result) {
+                    window.location.replace("/unchainedUser");
+                }, function (error) {
+                    window.alert("Something went wrong!");
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
+
+</body>
+
+</html>

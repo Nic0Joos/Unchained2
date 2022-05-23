@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2019. University of Applied Sciences and Arts Northwestern Switzerland FHNW.
- * All rights reserved.
+From Andreas Martin FHNW
+https://github.com/DigiPR/digipr-acrm
  */
 
 package ch.fhnw.acrm.config;
@@ -16,7 +16,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfig {
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.OAS_30)
+        return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.regex("(?!/error).+"))

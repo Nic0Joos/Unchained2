@@ -1,64 +1,73 @@
-/*
- * Copyright (c) 2020. University of Applied Sciences and Arts Northwestern Switzerland FHNW.
- * All rights reserved.
- */
-
 package ch.fhnw.acrm.controller;
 
-import ch.fhnw.acrm.business.service.AgentService;
+
+import ch.fhnw.acrm.business.service.DistanceCalculatorService;
+import ch.fhnw.acrm.business.service.LoggerService;
+import ch.fhnw.acrm.business.service.UserService;
+import ch.fhnw.acrm.data.domain.UnchainedUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import ch.fhnw.acrm.data.domain.Agent;
 
+//Author: Alex
 @Controller
 public class UserController {
 
     @Autowired
-    private AgentService agentService;
+    UserService userService;
 
-    @GetMapping("/login")
-    public String getLoginView() {
-        return "user/login.html";
+    @Autowired
+    DistanceCalculatorService distanceCalculatorService;
+
+    @Autowired
+    LoggerService loggerService;
+
+    @PostMapping(path = "/register", consumes = {"application/json"}, produces = {"application/json"})
+    public ResponseEntity<Void> postRegister(@RequestBody UnchainedUser unchainedUser) {
+        try {
+            unchainedUser.setTravelDistance(distanceCalculatorService.getDistance(unchainedUser.getZipCode()));
+            userService.saveUser(unchainedUser);
+            loggerService.logUser("User: " + unchainedUser.getName() + " was created with Traveldistance: "+ unchainedUser.getTravelDistance());
+        } catch (Exception e) {
+            loggerService.logSystem("warning", e.toString());
+            new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+        return ResponseEntity.ok().build();
     }
 
-    @GetMapping("/user/register")
-    public String getRegisterView() {
+    @PutMapping(path = "/profile/edit")
+    public ResponseEntity<UnchainedUser> putUser(@RequestBody UnchainedUser unchainedUser) {
+        try {
+            unchainedUser.setUserId(userService.getCurrentUser().getUserId());
+        } catch (Exception e) {
+            loggerService.logUser("User profile of " + unchainedUser + "was changed.");
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+        return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(path = "/profile/edit", produces = "application/json")
+    public @ResponseBody
+    UnchainedUser getProfile() {
+        return userService.getCurrentUser();
+    }
+
+    @GetMapping(path = "/user")
+    public String getProfileView() {
+        return "customer.html";
+    }
+
+    @GetMapping(path = "/register")
+    public String getRegisterView(){
         return "register.html";
     }
 
-    @PostMapping("/user/register")
-    public ResponseEntity<Void> postRegister(@RequestBody Agent agent) {
-        try {
-            agentService.saveAgent(agent);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
-        }
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/profile/edit")
-    public String getProfileView() {
-        return "../user/profile.html";
-    }
-
-    @GetMapping("/profile")
-    public @ResponseBody Agent getProfile() {
-        return agentService.getCurrentAgent();
-    }
-
-    @PutMapping("/profile")
-    public ResponseEntity<Void> putProfile(@RequestBody Agent agent) {
-        try {
-            agent.setId(agentService.getCurrentAgent().getId());
-            agentService.saveAgent(agent);
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
-        }
-        return ResponseEntity.ok().build();
+    @GetMapping(path = "/login")
+    public String getLoginView(){
+        return "login.html";
     }
 
     @RequestMapping(value = "/validate", method = {RequestMethod.GET, RequestMethod.HEAD})

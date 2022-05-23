@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 //Author: Lennart
 @Controller
-@RequestMapping(path = "/")
-public class IndexController {
+@RequestMapping(path = "/about")
+public class AboutUsController {
 
     @GetMapping
     public String getIndexView(){
-        return "index.html";
+        return "about-us.html";
     }
 
 }

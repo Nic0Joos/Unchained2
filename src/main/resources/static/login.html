@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Login</title>
+    <link rel="icon" type="image/png" href="assets/img/Favicon1.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/">Unchained</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Login</h2>
+                    <p>Welcome! <br> Please enter your email and password to continue.</p>
+                </div>
+                <form name="form" id="form">
+                    <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email" inputmode="email"></div>
+                    <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password"></div>
+                    <div class="mb-3"><a href="/register">Want to create an account instead?</a></div>
+                    <div class="mb-3"><button class="btn btn-primary" type="submit">Send</button></div>
+                </form>
+            </div>
+        </section>
+    </main>
+    <div class="modal fade" role="dialog" tabindex="-1" id="error-modal">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #e85e6c;">
+                    <h1 class="text-white">Ooops!</h1><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+                <div class="modal-body">
+                    <p class="text-truncate text-primary" id="error-text"></p>
+                </div>
+                <div class="modal-footer"><button class="btn btn-warning btn-block" type="button" data-dismiss="modal">Try Again</button></div>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2022 Unchained</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>-->
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script language="JavaScript">
+        $(document).ready(function () {
+
+            $("#form").submit(function (event) {
+
+                login($('input[name=email]').val(), $('input[name=password]').val(), function (result) {
+                    if(result) {
+                        window.location.replace("../");
+                    }
+                    else {
+                        $("#error-modal").modal('show');
+                        $("#error-text").text("Bad credentials!");
+                    }
+                });
+                event.preventDefault();
+            });
+        });
+    </script>
+</body>
+
+</html>

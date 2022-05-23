@@ -5,6 +5,7 @@
 
 package ch.fhnw.acrm.business.service;
 
+import ch.fhnw.acrm.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -13,29 +14,24 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import ch.fhnw.acrm.data.domain.Agent;
-import ch.fhnw.acrm.data.repository.AgentRepository;
+import ch.fhnw.acrm.data.domain.UnchainedUser;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
-import static java.util.Collections.emptyList;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
-    private AgentRepository agentRepository;
+    private UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Agent agent = agentRepository.findByEmail(username);
-        if (agent == null) {
+        UnchainedUser user = userRepository.findByEmail(username);
+        if (user == null) {
             throw new UsernameNotFoundException(username);
         }
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
-        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + agent.getRole()));
-        return new User(agent.getEmail(), agent.getPassword(), grantedAuthorities);
+        grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
+        return new User(user.getEmail(), user.getPassword(), grantedAuthorities);
     }
 }

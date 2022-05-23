@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Shop</title>
+    <link rel="icon" type="image/png" href="assets/img/Favicon1.png">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/">Unchained</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/user">Customer&nbsp;</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/shop">Product Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/about">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+                </ul><button class="btn btn-primary d-none" type="button">Logout</button>
+            </div>
+        </div>
+    </nav>
+    <main class="page pricing-table-page">
+        <section class="clean-block clean-pricing dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Pricing Table</h2>
+                    <p>Please select your product(s).<br> <br> Max amount of Product A: <b>250</b> <br> Max amount of Product B: <b>60</b> <br> Max amount of Product C: <b>72</b> <br> Max amount of Product D: <b>1500</b> </p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-5">
+                        <div class="clean-pricing-item">
+                            <div class="heading">
+                                <h3 id="Name_ProductA">Product A</h3>
+                            </div>
+                            <div class="features">
+                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span value="25" id="MaxAmount_ProductA">25</span></h4>
+                                <h4><span class="feature">Pallets:&nbsp;</span><span value="1.2" id="MinPallets_ProductA">1.2</span></h4>
+                                <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductA" class="form-control-sm" type="number" value="0" min="0" max="250"  placeholder="Enter amount"></h4>
+                                <h4><p hidden id="Warning_ProductA" style="color:red"></p></h4>
+                            </div>
+                            <div class="price">
+                                <h4 id="Price_ProductA">CHF 13.50</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                        <div class="clean-pricing-item">
+                            <div class="heading">
+                                <h3 id="Name_ProductB">Product B</h3>
+                            </div>
+                            <div class="features">
+                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span value="10" id="MaxAmount_ProductB">10</span></h4>
+                                <h4><span class="feature">Pallets:&nbsp;</span><span value="2" id="MinPallets_ProductB">2</span></h4>
+                                <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductB" class="form-control-sm" type="number" value="0"  min="0" max="60"  placeholder="Enter amount"></h4>
+                                <h4><p hidden id="Warning_ProductB" style="color:red">Can't be more than 60!</p></h4>
+                            </div>
+                            <div class="price">
+                                <h4 id="Price_ProductB">CHF 15.00</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                        <div class="clean-pricing-item">
+                            <div class="heading">
+                                <h3 id="Name_ProductC">Product C</h3>
+                            </div>
+                            <div class="features">
+                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span id="MaxAmount_ProductC">15</span></h4>
+                                <h4><span class="feature">Pallets:&nbsp;</span><span id="MinPallets_ProductC">2.5</span></h4>
+                                <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductC" class="form-control-sm" type="number" value="0" min="0" max="72" placeholder="Enter amount"></h4>
+                                <h4><p hidden id="Warning_ProductC" style="color:red">Can't be more than 72!</p></h4>
+                            </div>
+                            <div class="price">
+                                <h4 id="Price_ProductC">CHF 11.90</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                        <div class="clean-pricing-item">
+                            <div class="heading">
+                                <h3 id="Name_ProductD">Product D</h3>
+                            </div>
+                            <div class="features">
+                                <h4><span class="feature">Maximum Amount:&nbsp;</span><span value="100" id="MaxAmount_ProductD">100</span></h4>
+                                <h4><span class="feature">Pallets:&nbsp;</span><span value="0.8" id="MinPallets_ProductD">0.8</span></h4>
+                                <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductD" class="form-control-sm" type="number" value="0"  min="0" max="1500"  placeholder="Enter amount"></h4>
+                                <h4><p hidden id="Warning_ProductD" style="color:red">Can't be more than 1500!</p></h4>
+                            </div>
+                            <div class="price">
+                                <h4 id="Price_ProductD">CHF 2.50</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                        <div class="clean-pricing-item">
+                            <h4><span class="feature">Shipping Costs: CHF&nbsp;</span><span id="ShippingPrice"></span></h4>
+                            <h4><span class="feature">Product Costs: CHF&nbsp;</span><span id="ProductPrice"></span></h4>
+                            <h4><span class="feature">The total is: CHF&nbsp;</span><span id="Totalprice"></span></h4>
+                            <div class="text-center price"><button class="btn btn-primary btn-lg" type="button" id="CalculateBtn" name="CalculateBtn">Calculate Costs</button></div>
+                            <div class="text-center price"><button class="btn btn-primary btn-lg" hidden type="button" id="OrderBtn" name="OrderBtn">Order</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="/home">Home</a></li>
+                        <li><a href="/register">Sign up</a></li>
+                        <li><a href="/shop">Shop</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2022 Unchained</p>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>-->
+    <script src="assets/js/vanilla-zoom.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <script language="JavaScript">
+    validateLogin(function (result) {
+        if (!result) {
+            window.location.replace("../login");
+        }
+    });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#Amount_ProductA").on("input", function(){
+                if($("#Amount_ProductA").val() >250) {
+                    $("#Warning_ProductA").html("Can't be more than 250!")
+                    $("#Warning_ProductA").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else if($("#Amount_ProductA").val() <0){
+                    $("#Warning_ProductA").html("Can't be negative!")
+                    $("#Warning_ProductA").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else {
+                    $("#Warning_ProductA").attr("hidden");
+                    $("#CalculateBtn").prop("disabled", false);
+                }
+            });
+
+            $("#Amount_ProductB").on("input", function(){
+                if($("#Amount_ProductB").val() >60) {
+                    $("#Warning_ProductB").html("Can't be more than 60!")
+                    $("#Warning_ProductB").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else if($("#Amount_ProductB").val() <0){
+                    $("#Warning_ProductB").html("Can't be negative!")
+                    $("#Warning_ProductB").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else {
+                    $("#Warning_ProductB").attr("hidden");
+                    $("#CalculateBtn").prop("disabled", false);
+                }
+            });
+
+            $("#Amount_ProductC").on("input", function(){
+                if($("#Amount_ProductC").val() >72) {
+                    $("#Warning_ProductC").html("Can't be more than 72!")
+                    $("#Warning_ProductC").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else if($("#Amount_ProductC").val() <0){
+                    $("#Warning_ProductC").html("Can't be negative!")
+                    $("#Warning_ProductC").attr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else {
+                    $("#Warning_ProductC")//TODO:hide when everything is correct
+                    $("#CalculateBtn").prop("disabled", false);
+                }
+            });
+
+            $("#Amount_ProductD").on("input", function(){
+                if($("#Amount_ProductD").val() >1500) {
+                    $("#Warning_ProductD").html("Can't be more than 1500!")
+                    $("#Warning_ProductD").removeAttr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else if($("#Amount_ProductD").val() <0){
+                    $("#Warning_ProductD").html("Can't be negative!")
+                    $("#Warning_ProductD").attr("hidden");
+                    $("#CalculateBtn").prop("disabled", true);
+                } else {
+                    $("#Warning_ProductD").attr("hidden");
+                    $("#CalculateBtn").prop("disabled", false);
+                }
+            });
+
+            $("#CalculateBtn").click(function (event) {
+                var AmountProductA = Math.ceil(Math.ceil(parseInt($("#Amount_ProductA").val()) / 25) * 1.2);
+                var AmountProductB = Math.ceil(Math.ceil(parseInt($("#Amount_ProductB").val()) / 10) * 2);
+                var AmountProductC = Math.ceil(Math.ceil(parseInt($("#Amount_ProductC").val()) / 15) * 2.5);
+                var AmountProductD = Math.ceil(Math.ceil(parseInt($("#Amount_ProductD").val()) / 100) * 0.8);
+                var FinalPallets = Math.max(AmountProductA, AmountProductB, AmountProductC, AmountProductD);
+                var ProductPrice = (parseInt($("#Amount_ProductA").val()) * 13.5)
+                +(parseInt($("#Amount_ProductB").val()) * 15)
+                +(parseInt($("#Amount_ProductC").val()) * 11.90)
+                +(parseInt($("#Amount_ProductD").val()) * 2.5);
+
+                getCost(FinalPallets, function(result, data){
+                    console.log("Result from server is: " + result);
+                    $("#ShippingPrice").html(parseFloat(data.price).toFixed(2));
+                    $("#ProductPrice").html(parseFloat(ProductPrice).toFixed(2));
+                    $("#Totalprice").html(parseFloat(data.price + ProductPrice).toFixed(2));
+                    if(result) {
+                        $("#CalculateBtn").hide();
+                        $("#OrderBtn").removeAttr("hidden");
+                    }
+                });
+            });
+
+            $("#OrderBtn").click(function(event){
+                var AmountProductA = $("#Amount_ProductA").val();
+                var AmountProductB = $("#Amount_ProductB").val();
+                var AmountProductC = $("#Amount_ProductC").val();
+                var AmountProductD = $("#Amount_ProductD").val();
+                var ShippingPrice = $("#ShippingPrice").text();
+                var Totalprice = $("#Totalprice").text();
+                console.log($("#ShippingPrice").text());
+                console.log($("#Totalprice").text());
+               
+                postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice,  function (result){
+                    if (result)
+                        window.location.reload();
+                });
+            });
+
+
+        });
+
+    </script>
+
+</body>
+
+</html>

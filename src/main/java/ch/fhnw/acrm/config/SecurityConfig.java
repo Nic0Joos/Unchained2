@@ -1,6 +1,6 @@
 /*
- * Copyright (c) 2020. University of Applied Sciences and Arts Northwestern Switzerland FHNW.
- * All rights reserved.
+From Andreas Martin FHNW
+https://github.com/DigiPR/digipr-acrm
  */
 
 package ch.fhnw.acrm.config;
