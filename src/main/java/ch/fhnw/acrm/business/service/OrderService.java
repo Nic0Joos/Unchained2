@@ -18,11 +18,14 @@ public class OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private UserService userService;
 
     public Ordering saveOrder(@Valid Ordering ordering) throws Exception {
         if (ordering.getShippingCost() <= 0) {
             throw new Exception("Shipping costs cannot be below 0");
         }
+        ordering.setUser(userService.getCurrentUser());
         return orderRepository.save(ordering);
     }
 

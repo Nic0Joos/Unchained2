@@ -1,8 +1,8 @@
 package ch.fhnw.acrm.data.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 //Author: Luca
 @Entity
@@ -17,9 +17,9 @@ public class Ordering {
     private int amountD;
     private double shippingCost;
     private double orderPrice;
-    /*@ManyToOne
+    @OneToOne
     @JsonIgnore
-    private User user;*/
+    private UnchainedUser user;
 
     public Ordering(Long orderId, int amountA, int amountB, int amountC, int amountD, double shippingCost, double orderPrice) {
         this.orderId = orderId;
@@ -95,12 +95,12 @@ public class Ordering {
         this.orderPrice = orderPrice;
     }
 
-    /*
-    public User getUser() {
+
+    public UnchainedUser getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(UnchainedUser user) {
         this.user = user;
-    }*/
+    }
 }

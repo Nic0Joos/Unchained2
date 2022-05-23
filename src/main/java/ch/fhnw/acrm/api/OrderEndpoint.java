@@ -28,7 +28,6 @@ public class OrderEndpoint {
     @PostMapping(path="/order")
     public ResponseEntity<Void> postOrder(@RequestBody Ordering ordering){
         try {
-            //ordering.setUser(userDetailsServiceImp.getCurrentUser());
             orderService.saveOrder(ordering);
             LoggerService.logSystem("info", "Order created with ID: " + ordering.getOrderId());
         } catch (Exception e) {

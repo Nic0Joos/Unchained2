@@ -108,7 +108,7 @@ function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProduct
         headers: {
             "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
         },
-        url: serviceEndpointURL + "/order",
+        url: serviceEndpointURL + "/api/order",
         data: JSON.stringify({
             "amountA": AmountProductA,
             "amountB": AmountProductB,
