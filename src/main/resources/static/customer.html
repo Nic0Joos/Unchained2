@@ -85,14 +85,6 @@
     <script language="JavaScript">
         $(document).ready(function () {
 
-            $("#password").on("input", function (event){
-                if ($("#password").val().length() >= 8){
-                    $("#Warning_Password").css('color':'green');
-                    $("#ProfileBtn").removeAttr("disabled");
-                }
-            });
-                
-             
             getProfile(function (data) {
                 $("#name").val(data.name)
                 $("#street").val(data.street)
@@ -100,6 +92,14 @@
                 $("#city").val(data.city)
                 $("#email").val(data.email)
             });
+
+
+            <!--$("#password").on("input", function (event){
+                if ($("#password").val().length() >= 8){
+                    $("#Warning_Password").css('color':'green');
+                    $("#ProfileBtn").removeAttr("disabled");
+                }
+            });-->
 
             $("#ProfileBtn").click(function (event) {
                 putProfile($('input[name=name]').val(), $('input[name=street]').val(), $('input[name=ZIPCode]').val(), $('input[name=city]').val(), $('input[name=email]').val(), $('input[name=password]').val(), function (result) {
