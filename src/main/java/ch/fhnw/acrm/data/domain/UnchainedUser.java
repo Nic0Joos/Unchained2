@@ -141,4 +141,5 @@ public class UnchainedUser {
 	public void setRemember(String remember) {
 		this.remember = remember;
 	}
+
 }
