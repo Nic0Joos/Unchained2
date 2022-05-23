@@ -21,6 +21,10 @@ public class Ordering {
     @JsonIgnore
     private UnchainedUser user;
 
+    public Ordering() {
+    }
+
+
     public Ordering(Long orderId, int amountA, int amountB, int amountC, int amountD, double shippingCost, double orderPrice) {
         this.orderId = orderId;
         this.amountA = amountA;
@@ -40,8 +44,6 @@ public class Ordering {
         this.orderPrice = orderPrice;
     }
 
-    public Ordering() {
-    }
 
 
 
