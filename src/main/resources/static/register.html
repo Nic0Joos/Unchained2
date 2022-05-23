@@ -72,7 +72,7 @@
                 console.log(ZIPCode);
                 register($("#name").val(), $("#street").val(), ($("#ZIPCode").val()), $("#city").val(), $("#email").val(), $("#password").val(), function (result) {
                     if(result){
-                        window.location.reload();
+                        window.location.replace("../");
                     }
                 });
                 event.preventDefault();

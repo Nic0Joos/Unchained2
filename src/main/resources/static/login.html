@@ -81,7 +81,8 @@
 
                 login($('input[name=email]').val(), $('input[name=password]').val(), function (result) {
                     if(result) {
-                        window.location.replace("../home");
+                    console.log(result);
+                        window.location.replace("../");
                     }
                     else {
                         $("#error-modal").modal('show');

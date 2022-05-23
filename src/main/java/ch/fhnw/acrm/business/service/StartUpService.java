@@ -34,7 +34,16 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
     private void createAdmin() {
 
         try {
-            userService.saveUser(new UnchainedUser("admin", "Peter-Merian-Strasse 86", "4052", "Basel", 1, "admin@unchained.com", true, "adminpassword", "ADMIN"));
+            UnchainedUser defaultAdmin = new UnchainedUser();
+            defaultAdmin.setName("admin");
+            defaultAdmin.setStreet("Peter-Merian-Strasse 86");
+            defaultAdmin.setZipCode("4052");
+            defaultAdmin.setCity("Basel");
+            defaultAdmin.setTravelDistance(1);
+            defaultAdmin.setEmail("admin@unchained.com");
+            defaultAdmin.setAnAdmin(true);
+            defaultAdmin.setPassword("password");
+            userService.saveUser(defaultAdmin);
             loggerService.logUser("Default Admin created");
         } catch (Exception e) {
             loggerService.logSystem("info", "Default admin creation failed");

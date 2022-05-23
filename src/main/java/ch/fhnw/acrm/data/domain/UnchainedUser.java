@@ -34,18 +34,7 @@ public class UnchainedUser {
 	@Transient // will not be stored in DB
 	private String remember;
 
-	public UnchainedUser(Long userId, String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password, String role) {
-		this.userId = userId;
-		this.name = name;
-		this.street = street;
-		this.zipCode = zipCode;
-		this.city = city;
-		this.travelDistance = travelDistance;
-		this.email = email;
-		this.isAnAdmin = isAnAdmin;
-		this.password = password;
-		this.role = role;
-	}
+	public UnchainedUser(){}
 
 	public UnchainedUser(String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password, String role) {
 		this.name = name;

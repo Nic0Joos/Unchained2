@@ -1,2 +1,2 @@
-Mai 23, 2022 3:02:59 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
-WARNING: java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 12
+Mai 23, 2022 4:49:35 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+INFO: Default Products created
