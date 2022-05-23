@@ -82,15 +82,17 @@
 
     <script language="JavaScript">
         $(document).ready(function () {
-            getProfile(function (result) {
-                $('input[street=street]').val(result["street"]);
-                $('input[ZIPCode=ZIPCode]').val(result["ZIPCode"]);
-                $('input[city=city]').val(result["city"]);
+            getProfile(function (data) {
+                $("#name").val(data.name)
+                $("#street").val(data.street)
+                $("#ZIPCode").val(data.zipCode)
+                $("#city").val(data.city)
+                $("#email").val(data.email)
             });
 
             $("#form").submit(function (event) {
-                putProfile($('input[street=street]').val(), $('input[ZIPCode=ZIPCode]').val(), $('input[city=city]').val(), $('input[password=password]').val(), function (result) {
-                    window.location.replace("/unchainedUser");
+                putProfile($('input[name=name]').val(), $('input[name=street]').val(), $('input[name=ZIPCode]').val(), $('input[name=city]').val(), $('input[name=email]').val(), $('input[name=password]').val(), function (result) {
+                    window.location.replace("/user");
                 }, function (error) {
                     window.alert("Something went wrong!");
                 });

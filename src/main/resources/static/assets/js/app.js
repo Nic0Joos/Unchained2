@@ -157,7 +157,7 @@ function getProfile(callback) {
 }
 
 //Author: Alex
-function putProfile(street, ZIPCode, city, callbackSuccess, callbackError) {
+function putProfile(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
     $.ajax({
         type: "PUT",
         contentType: "application/json",
@@ -166,9 +166,13 @@ function putProfile(street, ZIPCode, city, callbackSuccess, callbackError) {
         },
         url: serviceEndpointURL + "/profile/edit",
         data: JSON.stringify({
+            "name": name,
             "street": street,
-            "ZIPCode": ZIPCode,
-            "city": city
+            "zipCode": ZIPCode,
+            "city": city,
+            "email": email,
+            "password": password
+
         }),
         success: function (data, textStatus, response) {
             callbackSuccess(true);

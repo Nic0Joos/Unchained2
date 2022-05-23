@@ -41,6 +41,7 @@ public class UserController {
     public ResponseEntity<UnchainedUser> putUser(@RequestBody UnchainedUser unchainedUser) {
         try {
             unchainedUser.setUserId(userService.getCurrentUser().getUserId());
+            userService.saveUser(unchainedUser);
         } catch (Exception e) {
             loggerService.logUser("User profile of " + unchainedUser + "was changed.");
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
