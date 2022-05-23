@@ -28,7 +28,6 @@ public class UserController {
     @PostMapping(path = "/register")
     public ResponseEntity<Void> postRegister(@RequestBody UnchainedUser unchainedUser) {
         try {
-            unchainedUser.setTravelDistance(distanceCalculatorService.getDistance(unchainedUser.getZipCode()));
             userService.saveUser(unchainedUser);
             loggerService.logUser("User: " + unchainedUser.getName() + " was created with Traveldistance: "+ unchainedUser.getTravelDistance());
         } catch (Exception e) {

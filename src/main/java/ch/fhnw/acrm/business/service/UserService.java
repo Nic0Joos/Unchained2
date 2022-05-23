@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
+import javax.validation.Validator;
 
 @Service
 public class UserService {
@@ -17,6 +18,10 @@ public class UserService {
     private UserRepository userRepository;
     @Autowired
     private PasswordEncoder passwordEncoder;
+    @Autowired
+    Validator validator;
+    @Autowired
+    private DistanceCalculatorService distanceCalculatorService;
 
 
     public void saveUser(@Valid UnchainedUser unchainedUser) throws Exception {
@@ -25,6 +30,7 @@ public class UserService {
                 throw new Exception("User email already exists!");
             }
         }
+        unchainedUser.setTravelDistance(distanceCalculatorService.getDistance(unchainedUser.getZipCode()));
         unchainedUser.setPassword(passwordEncoder.encode(unchainedUser.getPassword()));
         userRepository.save(unchainedUser);
     }
