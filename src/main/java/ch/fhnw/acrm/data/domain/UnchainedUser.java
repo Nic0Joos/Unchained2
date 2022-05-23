@@ -29,7 +29,9 @@ public class UnchainedUser {
 	private boolean isAnAdmin;
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String password;
-	private String role; //Either USER or ADMIN
+	private String role = "USER";
+	@Transient // will not be stored in DB
+	private String remember;
 
 	public UnchainedUser(Long userId, String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password, String role) {
 		this.userId = userId;
@@ -132,7 +134,11 @@ public class UnchainedUser {
 		return role;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public String getRemember() {
+		return remember;
+	}
+
+	public void setRemember(String remember) {
+		this.remember = remember;
 	}
 }
