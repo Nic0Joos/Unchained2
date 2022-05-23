@@ -5,6 +5,7 @@ import ch.fhnw.acrm.data.domain.UnchainedUser;
 import ch.fhnw.acrm.data.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -36,8 +37,8 @@ public class UserService {
     }
 
     public UnchainedUser getCurrentUser() {
-        String userEmail = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return userRepository.findByEmail(userEmail);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return userRepository.findByEmail(user.getUsername());
     }
 
 

@@ -79,7 +79,7 @@
 
             $("#form").submit(function (event) {
 
-                login($('input[name=email]').val(), $('input[name=password]').val(), function (result) {
+                login($('input[name=email]').val(), $('input[name=password]').val(), true, function (result) {
                     if(result) {
                     console.log(result);
                         window.location.replace("../");

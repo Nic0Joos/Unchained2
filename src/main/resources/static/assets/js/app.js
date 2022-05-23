@@ -51,7 +51,7 @@ function login(email, password, remember, callback) {
         data: JSON.stringify({
             "email": email,
             "password": password,
-            "remember": false
+            "remember": remember
         }),
         success: function (data, textStatus, response) {
             callback(true);

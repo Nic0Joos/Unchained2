@@ -49,8 +49,7 @@ public class UserController {
     }
 
     @GetMapping(path = "/profile/edit", produces = "application/json")
-    public @ResponseBody
-    UnchainedUser getProfile() {
+    public @ResponseBody UnchainedUser getProfile() {
         return userService.getCurrentUser();
     }
 
