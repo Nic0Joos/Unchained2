@@ -68,10 +68,10 @@ function validateLogin(callback) {
     $.ajax({
         type: "HEAD",
         url: serviceEndpointURL + "/validate",
-        success: function (data, textStatus, response) {
+        success: function () {
             callback(true);
         },
-        error: function (jqXHR, textStatus, errorThrown) {
+        error: function () {
             callback(false);
         }
     });
