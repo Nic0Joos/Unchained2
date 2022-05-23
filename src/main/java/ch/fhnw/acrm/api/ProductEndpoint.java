@@ -1,4 +1,4 @@
-package ch.fhnw.acrm.api;
+/*package ch.fhnw.acrm.api;
 
 
 import ch.fhnw.acrm.business.service.LoggerService;
@@ -67,3 +67,4 @@ public class ProductEndpoint {
         return ResponseEntity.accepted().build();
     }
 }
+*/
