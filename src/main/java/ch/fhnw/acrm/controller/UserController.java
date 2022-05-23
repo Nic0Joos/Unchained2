@@ -42,6 +42,7 @@ public class UserController {
         try {
             unchainedUser.setUserId(userService.getCurrentUser().getUserId());
             userService.saveUser(unchainedUser);
+            loggerService.logUser("User with ID: " + unchainedUser.getUserId() + " was updated!");
         } catch (Exception e) {
             loggerService.logUser("User profile of " + unchainedUser + "was changed.");
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());

@@ -92,7 +92,7 @@
 
             $("#form").submit(function (event) {
                 putProfile($('input[name=name]').val(), $('input[name=street]').val(), $('input[name=ZIPCode]').val(), $('input[name=city]').val(), $('input[name=email]').val(), $('input[name=password]').val(), function (result) {
-                    window.location.replace("/user");
+                    window.location.replace("/home");
                 }, function (error) {
                     window.alert("Something went wrong!");
                 });
