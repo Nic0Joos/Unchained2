@@ -38,12 +38,14 @@
                     <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
                         <h4>Profile</h4>
                         <form id="form">
+                            <div class="mb-3"><label class="form-label" for="name">Name</label><input class="form-control" type="text" id="name" name="name"></div>
                             <div class="mb-3"><label class="form-label" for="street">Street</label><input class="form-control" type="text" id="street" name="street"></div>
-                            <div class="mb-3"><label class="form-label" for="ZIPCode">ZIP Code</label><input class="form-control" type="text" id="ZIPCode" name="ZIPCode"></div>
-                            <div class="mb-3"><label class="form-label" for="city">City</label><input class="form-control" type="text" id="city"></div>
+                            <div class="mb-3"><label class="form-label" for="ZIPCode">ZIPCode</label><input class="form-control" type="number" id="ZIPCode" name="ZIPCode"></div>
+                            <div class="mb-3"><label class="form-label" for="city">City</label><input class="form-control" type="text" id="city" name="city"></div>
+                            <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email" inputmode="email"></div>
                             <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password"></div>
-                            <div class="mb-3"></div>
-                        </form><button class="btn btn-primary" type="submit">Save changes</button>
+                            <p id="Warning_Password" style="color:red">Should be at least 8 characters</p>
+                        </form><button disabled id="ProfileBtn" class="btn btn-primary" type="submit">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -82,6 +84,15 @@
 
     <script language="JavaScript">
         $(document).ready(function () {
+
+            $("#password").on("input", function (event){
+                if ($("#password").val().length() >= 8){
+                    $("#Warning_Password").css("color:green");
+                    $("#ProfileBtn").removeAttr("disabled");
+                }
+            });
+                
+             
             getProfile(function (data) {
                 $("#name").val(data.name)
                 $("#street").val(data.street)
@@ -90,7 +101,7 @@
                 $("#email").val(data.email)
             });
 
-            $("#form").submit(function (event) {
+            $("#ProfileBtn").click(function (event) {
                 putProfile($('input[name=name]').val(), $('input[name=street]').val(), $('input[name=ZIPCode]').val(), $('input[name=city]').val(), $('input[name=email]').val(), $('input[name=password]').val(), function (result) {
                     window.location.replace("/home");
                 }, function (error) {
