@@ -17,13 +17,13 @@ import org.springframework.web.server.ResponseStatusException;
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Autowired
-    DistanceCalculatorService distanceCalculatorService;
+    private DistanceCalculatorService distanceCalculatorService;
 
     @Autowired
-    LoggerService loggerService;
+    private LoggerService loggerService;
 
     @PostMapping(path = "/register", consumes = {"application/json"}, produces = {"application/json"})
     public ResponseEntity<Void> postRegister(@RequestBody UnchainedUser unchainedUser) {
@@ -74,4 +74,5 @@ public class UserController {
     public ResponseEntity<Void> init() {
         return ResponseEntity.ok().build();
     }
+
 }
