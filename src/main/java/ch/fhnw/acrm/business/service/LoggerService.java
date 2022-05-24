@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 //Copied from https://github.com/MathisHermann/TimBan
+//Adjusted to append: Nico
 
 @Service
 public class LoggerService {
@@ -20,7 +21,7 @@ public class LoggerService {
         FileHandler fh = null;
 
         try {
-            fh = new FileHandler("system_logs.log");
+            fh = new FileHandler("system_logs.log", true);
             logger.addHandler(fh);
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
@@ -60,7 +61,7 @@ public class LoggerService {
         FileHandler fh = null;
 
         try {
-            fh = new FileHandler("user_logs.log");
+            fh = new FileHandler("user_logs.log", true);
             logger.addHandler(fh);
             SimpleFormatter formatter = new SimpleFormatter();
             fh.setFormatter(formatter);
