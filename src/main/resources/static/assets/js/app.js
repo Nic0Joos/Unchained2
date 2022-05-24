@@ -130,37 +130,7 @@ function getProducts(callback) {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: serviceEndpointURL + "/api/product",
-        success: function (data, textStatus, response) {
-            callback(data);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR, textStatus, errorThrown);
-        }
-    });
-}
-
-//Author: Kaan
-function getProducts(callback) {
-    $.ajax({
-        type: "GET",
-        dataType: "json",
         url: serviceEndpointURL + "/api/order",
-        success: function (data, textStatus, response) {
-            callback(data);
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log(jqXHR, textStatus, errorThrown);
-        }
-    });
-}
-
-//Author: Kaan
-function getUsers(callback) {
-    $.ajax({
-        type: "GET",
-        dataType: "json",
-        url: serviceEndpointURL + "/users",
         success: function (data, textStatus, response) {
             callback(data);
         },
