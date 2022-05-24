@@ -24,9 +24,6 @@ public class CostRequestEndpoint {
     @Autowired
     private UserService userService;
 
-    @Autowired
-    private LoggerService loggerService;
-
     //Tested with postman: 19.05.2022/NJ
     @PostMapping(consumes = {"application/json"}, produces = {"application/json"})
     public @ResponseBody
@@ -35,7 +32,7 @@ public class CostRequestEndpoint {
             costRequest.setPrice(costRequestService.getCosts(costRequest.getPallets(),  userService.getCurrentUser().getTravelDistance()));
             costRequest.setKm(userService.getCurrentUser().getTravelDistance());
         } catch (Exception e) {
-            loggerService.logSystem("warning",e.toString());
+            LoggerService.logSystem("warning", "Costrequest failed: " + e.toString());
         }
         return costRequest;
     }

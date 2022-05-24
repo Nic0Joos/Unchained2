@@ -21,9 +21,6 @@ public class OrderEndpoint {
     @Autowired
     private OrderService orderService;
 
-    @Autowired
-    private LoggerService loggerService;
-
     //Tested with PostMan: 21.05.2022 (Cookie has to be deleted)
     @PostMapping(path="/order")
     public ResponseEntity<Void> postOrder(@RequestBody Ordering ordering){

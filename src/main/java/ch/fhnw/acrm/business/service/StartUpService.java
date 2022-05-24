@@ -19,11 +19,6 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
     @Autowired
     ProductService productService;
 
-    @Autowired
-    LoggerService loggerService;
-
-    @Autowired
-    PasswordEncoder passwordEncoder;
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
@@ -44,9 +39,9 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
             defaultAdmin.setAnAdmin(true);
             defaultAdmin.setPassword("password");
             userService.saveUser(defaultAdmin);
-            loggerService.logUser("Default Admin created");
+            LoggerService.logUser("Default Admin created");
         } catch (Exception e) {
-            loggerService.logSystem("info", "Default admin creation failed");
+            LoggerService.logSystem("info", "Default admin creation failed");
         }
 
     }
@@ -58,9 +53,9 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
         productService.saveProduct(new Product("Prod. B",  10L, 2.0, 15.0));
         productService.saveProduct(new Product("Prod. C",  15L, 2.5, 11.90));
         productService.saveProduct(new Product("Prod. D", 100L, 0.8, 2.50));
-            loggerService.logSystem("info", "Default Products created");
+            LoggerService.logSystem("info", "Default Products created");
         } catch (Exception e) {
-            loggerService.logSystem("info", "Default Products creation failed");
+            LoggerService.logSystem("info", "Default Products creation failed");
         }
     }
 

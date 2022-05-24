@@ -1,4 +1,4 @@
-/*package ch.fhnw.acrm.api;
+package ch.fhnw.acrm.api;
 
 
 import ch.fhnw.acrm.business.service.LoggerService;
@@ -22,8 +22,7 @@ public class ProductEndpoint {
     @Autowired
     private ProductService productService;
 
-    @Autowired
-    private LoggerService loggerService;
+
 
     @PostMapping(path = "/product,", consumes = "application/json", produces = "application/json")
     public ResponseEntity<Product> postProduct(@RequestBody Product product){
@@ -31,7 +30,7 @@ public class ProductEndpoint {
         try {
             productService.saveProduct(product);
         } catch (Exception e) {
-            loggerService.logSystem("warning", e.toString());
+            LoggerService.logSystem("warning", e.toString());
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
 
@@ -67,4 +66,3 @@ public class ProductEndpoint {
         return ResponseEntity.accepted().build();
     }
 }
-*/

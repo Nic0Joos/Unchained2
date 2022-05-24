@@ -22,16 +22,14 @@ public class UserController {
     @Autowired
     private DistanceCalculatorService distanceCalculatorService;
 
-    @Autowired
-    private LoggerService loggerService;
 
     @PostMapping(path = "/register")
     public ResponseEntity<Void> postRegister(@RequestBody UnchainedUser unchainedUser) {
         try {
             userService.saveUser(unchainedUser);
-            loggerService.logUser("User: " + unchainedUser.getName() + " was created with Traveldistance: "+ unchainedUser.getTravelDistance());
+            LoggerService.logUser("User: " + unchainedUser.getName() + " was created with Traveldistance: "+ unchainedUser.getTravelDistance());
         } catch (Exception e) {
-            loggerService.logSystem("warning", e.toString());
+            LoggerService.logSystem("warning", e.toString());
             new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
         return ResponseEntity.ok().build();
@@ -42,9 +40,9 @@ public class UserController {
         try {
             unchainedUser.setUserId(userService.getCurrentUser().getUserId());
             userService.saveUser(unchainedUser);
-            loggerService.logUser("User with ID: " + unchainedUser.getUserId() + " was updated!");
+            LoggerService.logUser("User with ID: " + unchainedUser.getUserId() + " was updated!");
         } catch (Exception e) {
-            loggerService.logUser("User profile of " + unchainedUser.getUserId() + " was not changed.");
+            LoggerService.logUser("User profile of " + unchainedUser.getUserId() + " was not changed.");
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
         return ResponseEntity.ok().build();
