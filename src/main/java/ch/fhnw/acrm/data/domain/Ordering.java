@@ -101,7 +101,6 @@ public class Ordering {
     public UnchainedUser getUser() {
         return user;
     }
-
     public void setUser(UnchainedUser user) {
         this.user = user;
     }
