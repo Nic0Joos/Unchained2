@@ -5,6 +5,7 @@
 
 package onl.mrtn.security.web;
 
+import ch.fhnw.acrm.business.service.LoggerService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import onl.mrtn.security.config.TokenSecurityProperties;
 import onl.mrtn.security.model.TokenUser;
@@ -57,8 +58,10 @@ public class TokenLoginFilter extends UsernamePasswordAuthenticationFilter {
                                             HttpServletResponse response,
                                             FilterChain chain,
                                             Authentication auth) throws IOException, ServletException {
-        Date date = null;
+
+        LoggerService.logUser("User logged in: " + user.getEmail());
         Cookie cookie = null;
+        Date date = null;
 
         if(Boolean.parseBoolean(this.user.getRemember())) {
             date = new Date(System.currentTimeMillis() + TokenSecurityProperties.REMEMBER_EXPIRATION_TIME);
