@@ -140,7 +140,7 @@ function getProducts(callback) {
     });
 }
 
-//Author: Alex
+//Author: Kaan
 function getProfile(callback) {
     $.ajax({
         type: "GET",
@@ -155,7 +155,7 @@ function getProfile(callback) {
     });
 }
 
-//Author: Alex
+//Author: Kaan
 function putProfile(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
     $.ajax({
         type: "PUT",

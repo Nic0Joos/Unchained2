@@ -15,7 +15,7 @@ import javax.validation.Validator;
 import java.util.ArrayList;
 import java.util.List;
 
-//Author: Alex
+//Author: Kaan
 @Service
 public class UserService {
 
