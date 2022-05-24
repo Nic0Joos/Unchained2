@@ -31,7 +31,7 @@
   <section class="clean-block features">
     <div class="container">
       <div class="block-heading">
-        <h2 class="text-info">Admin Profile</h2>
+        <h2 class="text-info">Admin Dashboard</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
       </div>
         <div class="col-md-12 feature-box">
@@ -103,7 +103,46 @@
     });
     </script>-->
 
+<script>
 
+$(document).ready(function () {
+            $(loadData());
+
+            function loadData() {
+                getOrders(function (data) {
+                    $("#OrderTableData").empty();
+                    $.each(data, function (i, item) {
+                        $("#tableData").append(
+                            $("<tr>").append(
+                                $("<td>").text(item.orderId),
+                                $("<td>").text(item.amountA),
+                                $("<td>").text(item.amountB),
+                                $("<td>").text(item.amountC),
+                                $("<td>").text(item.amountD),
+                                $("<td>").text(item.user)
+                            )
+                        );
+                    });
+                });
+
+                getCustomers(function (result){
+                  $("#UserTableData").empty();
+                    $.each(data, function (i, item) {
+                        $("#tableData").append(
+                            $("<tr>").append(
+                                $("<td>").text(item.userId),
+                                $("<td>").text(item.name),
+                                $("<td>").text(item.email),
+                                $("<td>").text(item.street),
+                                $("<td>").text(item.city),
+                            )
+                        );
+                    });
+                });
+            }
+
+          });
+</script>
 
 </body>
 
