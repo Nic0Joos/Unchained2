@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import javax.validation.Valid;
 import javax.validation.Validator;
 
-//Author: Alex
+//Author: Kaan
 @Service
 public class UserService {
 

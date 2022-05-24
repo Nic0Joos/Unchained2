@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-//Author: Alex
+
 @Controller
 public class UserController {
 
@@ -22,7 +22,7 @@ public class UserController {
     @Autowired
     private DistanceCalculatorService distanceCalculatorService;
 
-
+    //Author: Alex
     @PostMapping(path = "/register")
     public ResponseEntity<Void> postRegister(@RequestBody UnchainedUser unchainedUser) {
         try {
@@ -34,7 +34,7 @@ public class UserController {
         }
         return ResponseEntity.ok().build();
     }
-
+    //Author: Kaan
     @PutMapping(path = "/profile/edit")
     public ResponseEntity<UnchainedUser> putUser(@RequestBody UnchainedUser unchainedUser) {
         try {
@@ -47,7 +47,7 @@ public class UserController {
         }
         return ResponseEntity.ok().build();
     }
-
+   // Author: Alex
     @GetMapping(path = "/profile/edit", produces = "application/json")
     public @ResponseBody UnchainedUser getProfile() {
         return userService.getCurrentUser();
