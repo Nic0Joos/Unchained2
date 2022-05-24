@@ -30,7 +30,7 @@ public class UnchainedUser {
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
 	private String password;
 	@JsonIgnore
-	private String role = "USER";
+	private String role;
 	@Transient // will not be stored in DB
 	private String remember;
 
@@ -115,6 +115,8 @@ public class UnchainedUser {
 	public String getRole() {
 		return role;
 	}
+
+	public void setRole(String role) {this.role = role;}
 
 	public String getRemember() {
 		return remember;

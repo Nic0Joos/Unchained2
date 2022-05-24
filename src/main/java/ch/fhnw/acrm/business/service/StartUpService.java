@@ -38,6 +38,7 @@ public class StartUpService implements ApplicationListener<ApplicationReadyEvent
             defaultAdmin.setEmail("admin@unchained.com");
             defaultAdmin.setAnAdmin(true);
             defaultAdmin.setPassword("password");
+            defaultAdmin.setRole("ADMIN");
             userService.saveUser(defaultAdmin);
             LoggerService.logUser("Default Admin created");
         } catch (Exception e) {

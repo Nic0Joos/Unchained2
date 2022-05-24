@@ -33,6 +33,7 @@ public class UserService {
         }
         unchainedUser.setTravelDistance(distanceCalculatorService.getDistance(unchainedUser.getZipCode()));
         unchainedUser.setPassword(passwordEncoder.encode(unchainedUser.getPassword()));
+        unchainedUser.setRole("USER");
         userRepository.save(unchainedUser);
     }
 

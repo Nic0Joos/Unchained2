@@ -97,7 +97,6 @@ function getCost(FinalPallets, callback){
             callback(false);
         }
     });
-
 }
 
 //Author: Luca
