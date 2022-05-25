@@ -100,7 +100,7 @@ function getCost(FinalPallets, callback){
 }
 
 //Author: Luca
-function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice, callbackSuccess) {
+function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice, callback) {
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -117,7 +117,7 @@ function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProduct
             "orderPrice": Totalprice
         }),
         success: function (data, textStatus, response) {
-            callback(true, data);
+            callback(true);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR, textStatus, errorThrown);
