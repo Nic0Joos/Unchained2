@@ -44,7 +44,7 @@
                             <div class="mb-3"><label class="form-label" for="city">City</label><input class="form-control" type="text" id="city" name="city"></div>
                             <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email" inputmode="email"></div>
                             <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password"></div>
-                        </form><button disabled id="ProfileBtn" class="btn btn-primary" type="submit">Save changes</button>
+                        </form><button id="ProfileBtn" class="btn btn-primary" type="submit">Save changes</button>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@
 
 
             $("#ProfileBtn").click(function (event) {
-                putProfile($('input[name=name]').val(), $('input[name=street]').val(), $('input[name=ZIPCode]').val(), $('input[name=city]').val(), $('input[name=email]').val(), $('input[name=password]').val(), function (result) {
+                putProfile($("#name").val(), $("#street").val(), $("#ZIPCode").val(), $("#city").val(), $("#email").val(), $("#password").val(), function (result) {
                     window.location.replace("/home");
                 }, function (error) {
                     window.alert("Something went wrong!");
