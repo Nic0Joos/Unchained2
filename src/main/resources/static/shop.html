@@ -227,6 +227,10 @@
                     if(result) {
                         $("#CalculateBtn").hide();
                         $("#OrderBtn").removeAttr("hidden");
+                        $("#Amount_ProductA").prop('disabled', true);
+                        $("#Amount_ProductB").prop('disabled', true);
+                        $("#Amount_ProductC").prop('disabled', true);
+                        $("#Amount_ProductD").prop('disabled', true);
                     }
                 });
             });
