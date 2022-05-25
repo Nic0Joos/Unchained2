@@ -22,7 +22,7 @@ public class OrderService {
     private UserService userService;
 
     public Ordering saveOrder(@Valid Ordering ordering) throws Exception {
-        if (ordering.getShippingCost() <= 0) {
+        if (Double.parseDouble(ordering.getShippingCost()) <= 0) {
             throw new Exception("Shipping costs cannot be below 0");
         }
         ordering.setUser(userService.getCurrentUser());

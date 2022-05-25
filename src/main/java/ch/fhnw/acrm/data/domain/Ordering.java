@@ -11,12 +11,12 @@ public class Ordering {
     @Id
     @GeneratedValue
     private Long orderId;
-    private int amountA;
-    private int amountB;
-    private int amountC;
-    private int amountD;
-    private double shippingCost;
-    private double orderPrice;
+    private String amountA;
+    private String amountB;
+    private String amountC;
+    private String amountD;
+    private String shippingCost;
+    private String orderPrice;
     @OneToOne
     @JsonIgnore
     private UnchainedUser user;
@@ -25,7 +25,7 @@ public class Ordering {
     }
 
 
-    public Ordering(Long orderId, int amountA, int amountB, int amountC, int amountD, double shippingCost, double orderPrice) {
+    public Ordering(Long orderId, String amountA, String amountB, String amountC, String amountD, String shippingCost, String orderPrice) {
         this.orderId = orderId;
         this.amountA = amountA;
         this.amountB = amountB;
@@ -35,7 +35,7 @@ public class Ordering {
         this.orderPrice = orderPrice;
     }
 
-    public Ordering(int amountA, int amountB, int amountC, int amountD, double shippingCost, double orderPrice) {
+    public Ordering(String amountA, String amountB, String amountC, String amountD, String shippingCost, String orderPrice) {
         this.amountA = amountA;
         this.amountB = amountB;
         this.amountC = amountC;
@@ -55,45 +55,45 @@ public class Ordering {
         this.orderId = orderId;
     }
 
-    public int getAmountA() {
+    public String getAmountA() {
         return amountA;
     }
-    public void setAmountA(int amountA) {
+    public void setAmountA(String amountA) {
         this.amountA = amountA;
     }
 
-    public int getAmountB() {
+    public String getAmountB() {
         return amountB;
     }
-    public void setAmountB(int amountB) {
+    public void setAmountB(String amountB) {
         this.amountB = amountB;
     }
 
-    public int getAmountC() {
+    public String getAmountC() {
         return amountC;
     }
-    public void setAmountC(int amountC) {
+    public void setAmountC(String amountC) {
         this.amountC = amountC;
     }
 
-    public int getAmountD() {
+    public String getAmountD() {
         return amountD;
     }
-    public void setAmountD(int amountD) {
+    public void setAmountD(String amountD) {
         this.amountD = amountD;
     }
 
-    public double getShippingCost() {
+    public String getShippingCost() {
         return shippingCost;
     }
-    public void setShippingCost(Long shippingCost) {
+    public void setShippingCost(String shippingCost) {
         this.shippingCost = shippingCost;
     }
 
-    public double getOrderPrice() {
+    public String getOrderPrice() {
         return orderPrice;
     }
-    public void setOrderPrice(Long orderPrice) {
+    public void setOrderPrice(String orderPrice) {
         this.orderPrice = orderPrice;
     }
 
