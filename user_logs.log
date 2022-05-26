@@ -10,3 +10,21 @@ Mai 25, 2022 1:37:52 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
 INFO: Default Admin created
 Mai 25, 2022 1:39:01 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
 INFO: User logged in: admin@unchained.com
+Mai 26, 2022 4:43:07 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: Default Admin created
+Mai 26, 2022 4:43:23 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User: Luca Weisskopf was created with Traveldistance: 12
+Mai 26, 2022 4:43:27 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User logged in: lucaweisskopf@hotmail.com
+Mai 26, 2022 4:43:54 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User with ID: 6 was updated!
+Mai 26, 2022 4:45:37 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User: Luca Weisskopf was created with Traveldistance: 12
+Mai 26, 2022 4:45:45 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User logged in: lucaweisskopf@hotmail.ch
+Mai 26, 2022 4:47:29 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: Default Admin created
+Mai 26, 2022 4:47:51 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User: Luca Weisskopf was created with Traveldistance: 12
+Mai 26, 2022 4:47:54 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User logged in: lucaweisskopf@hotmail.com
