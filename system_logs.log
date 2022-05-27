@@ -20,3 +20,11 @@ Mai 26, 2022 4:44:49 NACHM. ch.fhnw.acrm.business.service.LoggerService logSyste
 WARNUNG: java.lang.Exception: User email already exists!
 Mai 26, 2022 4:47:29 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
 INFORMATION: Default Products created
+Mai 27, 2022 10:02:21 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+INFORMATION: Default Products created
+Mai 27, 2022 10:02:55 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+INFORMATION: Order created with ID: 7
+Mai 27, 2022 10:02:58 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+INFORMATION: Order created with ID: 8
+Mai 27, 2022 10:03:00 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+INFORMATION: Order created with ID: 9
