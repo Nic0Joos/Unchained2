@@ -1,5 +1,6 @@
 package ch.fhnw.acrm.business.service;
 
+import ch.fhnw.acrm.data.domain.Ordering;
 import ch.fhnw.acrm.data.domain.UnchainedUser;
 
 import ch.fhnw.acrm.data.repository.UserRepository;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
 import javax.validation.Validator;
+import java.util.ArrayList;
+import java.util.List;
 
 //Author: Kaan
 @Service
@@ -44,4 +47,12 @@ public class UserService {
     }
 
 
+    public List<UnchainedUser> findAllUsers() {
+        List<UnchainedUser> List = new ArrayList<>();
+
+        for (UnchainedUser user: userRepository.findAll()) {
+            List.add(user);
+        }
+        return List;
+    }
 }

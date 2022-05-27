@@ -14,7 +14,7 @@ import java.util.List;
 
 //Author: Luca
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api/order")
 public class OrderEndpoint {
 
 
@@ -22,7 +22,7 @@ public class OrderEndpoint {
     private OrderService orderService;
 
     //Tested with PostMan: 21.05.2022 (Cookie has to be deleted)
-    @PostMapping(path="/order")
+    @PostMapping
     public ResponseEntity<Void> postOrder(@RequestBody Ordering ordering){
         try {
             orderService.saveOrder(ordering);
@@ -40,16 +40,6 @@ public class OrderEndpoint {
         return orderService.findAllOrders();
     }
 
-    //Put and Delete of orders forbidden
-    @PutMapping(path="/change/{orderID}")
-    public Exception putOrder() {
-        return new ResponseStatusException(HttpStatus.FORBIDDEN);
-    }
-
-    @DeleteMapping(path="/delete/{orderID}")
-    public Exception deleteOrder() {
-        return new ResponseStatusException(HttpStatus.FORBIDDEN);
-    }
 
 
 }

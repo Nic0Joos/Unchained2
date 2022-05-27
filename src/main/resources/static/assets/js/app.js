@@ -100,7 +100,7 @@ function getCost(FinalPallets, callback){
 }
 
 //Author: Luca
-function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice, callbackSuccess) {
+function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProductD, ShippingPrice, Totalprice, callback) {
     $.ajax({
         type: "POST",
         contentType: "application/json",
@@ -117,7 +117,7 @@ function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProduct
             "orderPrice": Totalprice
         }),
         success: function (data, textStatus, response) {
-            callback(true, data);
+            callback(true);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR, textStatus, errorThrown);
@@ -130,7 +130,7 @@ function getProducts(callback) {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: serviceEndpointURL + "/api/product",
+        url: serviceEndpointURL + "/api/order",
         success: function (data, textStatus, response) {
             callback(data);
         },
@@ -140,7 +140,7 @@ function getProducts(callback) {
     });
 }
 
-//Author: Kaan
+//Author: Alex
 function getProfile(callback) {
     $.ajax({
         type: "GET",
@@ -155,7 +155,7 @@ function getProfile(callback) {
     });
 }
 
-//Author: Kaan
+//Author: Alex
 function putProfile(name, street, ZIPCode, city, email, password, callbackSuccess, callbackError) {
     $.ajax({
         type: "PUT",
