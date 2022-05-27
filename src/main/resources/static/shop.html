@@ -75,8 +75,8 @@
                             <div class="features">
                                 <h4><span class="feature">Maximum Amount:&nbsp;</span><span id="MaxAmount_ProductC">15</span></h4>
                                 <h4><span class="feature">Pallets:&nbsp;</span><span id="MinPallets_ProductC">2.5</span></h4>
-                                <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductC" class="form-control-sm" type="number" value="0" min="0" max="72" placeholder="Enter amount"></h4>
-                                <h4><p hidden id="Warning_ProductC" style="color:red">Can't be more than 72!</p></h4>
+                                <h4><span class="feature">Amount:&nbsp;</span><input id="Amount_ProductC" class="form-control-sm" type="number" value="0" min="0" max="60" placeholder="Enter amount"></h4>
+                                <h4><p hidden id="Warning_ProductC" style="color:red">Can't be more than 60!</p></h4>
                             </div>
                             <div class="price">
                                 <h4 id="Price_ProductC">CHF 11.90</h4>
@@ -179,8 +179,8 @@
             });
 
             $("#Amount_ProductC").on("input", function(){
-                if($("#Amount_ProductC").val() >72) {
-                    $("#Warning_ProductC").html("Can't be more than 72!")
+                if($("#Amount_ProductC").val() >60) {
+                    $("#Warning_ProductC").html("Can't be more than 60!")
                     $("#Warning_ProductC").removeAttr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else if($("#Amount_ProductC").val() <0){
@@ -188,7 +188,7 @@
                     $("#Warning_ProductC").attr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else {
-                    $("#Warning_ProductC")//TODO:hide when everything is correct
+                    $("#Warning_ProductC").attr("hidden");
                     $("#CalculateBtn").prop("disabled", false);
                 }
             });
