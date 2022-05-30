@@ -28,3 +28,11 @@ Mai 26, 2022 4:47:51 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
 INFORMATION: User: Luca Weisskopf was created with Traveldistance: 12
 Mai 26, 2022 4:47:54 NACHM. ch.fhnw.acrm.business.service.LoggerService logUser
 INFORMATION: User logged in: lucaweisskopf@hotmail.com
+Mai 29, 2022 10:42:56 VORM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: Default Admin created
+Mai 29, 2022 10:43:13 VORM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User: Luca Weisskopf was created with Traveldistance: 12
+Mai 29, 2022 10:43:18 VORM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User logged in: lucaweisskopf@hotmail.com
+Mai 29, 2022 10:43:52 VORM. ch.fhnw.acrm.business.service.LoggerService logUser
+INFORMATION: User logged in: lucaweisskopf@hotmail.com
