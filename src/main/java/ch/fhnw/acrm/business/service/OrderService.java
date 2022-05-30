@@ -29,6 +29,6 @@ public class OrderService {
 
 
     public List<Ordering> findAllOrders() {
-        return orderRepository.findByUserId(userService.getCurrentUser().getUserId());
+        return orderRepository.findAllByUserId(userService.getCurrentUser().getId());
     }
 }

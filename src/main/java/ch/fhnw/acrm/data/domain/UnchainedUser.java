@@ -10,15 +10,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import java.util.List;
+
 // Author: Alex
 @Entity
 public class UnchainedUser {
 
 	@Id
 	@GeneratedValue
-	private Long userId;
+	private Long id;
 	private String name;
 	private String street;
 	private String zipCode;
@@ -50,11 +49,11 @@ public class UnchainedUser {
 	}
 
 	//getter and setter
-	public Long getUserId() {
-		return userId;
+	public Long getId() {
+		return id;
 	}
-	public void setUserId(Long userId) {
-		this.userId = userId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getName() {

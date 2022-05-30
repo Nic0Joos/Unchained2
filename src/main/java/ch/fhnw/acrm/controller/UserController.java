@@ -4,7 +4,6 @@ package ch.fhnw.acrm.controller;
 import ch.fhnw.acrm.business.service.DistanceCalculatorService;
 import ch.fhnw.acrm.business.service.LoggerService;
 import ch.fhnw.acrm.business.service.UserService;
-import ch.fhnw.acrm.data.domain.Ordering;
 import ch.fhnw.acrm.data.domain.UnchainedUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -41,11 +40,11 @@ public class UserController {
     @PutMapping(path = "/profile/edit")
     public ResponseEntity<UnchainedUser> putUser(@RequestBody UnchainedUser unchainedUser) {
         try {
-            unchainedUser.setUserId(userService.getCurrentUser().getUserId());
+            unchainedUser.setId(userService.getCurrentUser().getId());
             userService.saveUser(unchainedUser);
-            LoggerService.logUser("User with ID: " + unchainedUser.getUserId() + " was updated!");
+            LoggerService.logUser("User with ID: " + unchainedUser.getId() + " was updated!");
         } catch (Exception e) {
-            LoggerService.logUser("User profile of " + unchainedUser.getUserId() + " was not changed.");
+            LoggerService.logUser("User profile of " + unchainedUser.getId() + " was not changed.");
             throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
         }
         return ResponseEntity.ok().build();
