@@ -34,6 +34,7 @@ public class UnchainedUser {
 	@Transient // will not be stored in DB
 	private String remember;
 
+
 	public UnchainedUser(){}
 
 	public UnchainedUser(String name, String street, String zipCode, String city, int travelDistance, String email, boolean isAnAdmin, String password, String role) {

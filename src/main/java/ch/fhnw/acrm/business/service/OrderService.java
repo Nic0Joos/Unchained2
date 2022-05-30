@@ -2,13 +2,11 @@ package ch.fhnw.acrm.business.service;
 
 
 import ch.fhnw.acrm.data.domain.Ordering;
-import ch.fhnw.acrm.data.domain.Product;
 import ch.fhnw.acrm.data.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 //Author: Luca
