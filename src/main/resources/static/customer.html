@@ -51,13 +51,30 @@
                 </div>
             </div>
         </section>
+        
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Profile deletion</h2>
+                    <p>To delete your profile, please type <strong>DELETION</strong> below</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box">
+                        <h4>Delete your profile</h4>         
+                            <div class="mb-3"><input class="form-control" type="text" id="Deletion" name="Deletion"></div>
+                            <button id="DeletionBtn" disabled class="btn btn-primary" type="submit">Delete my profile</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
         <section class="clean-block features">
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Order Overview</h2>
                 </div>
-
-                        <h4>My Orders</h4>
+                    <h4>My Orders</h4>
                         <div class="table-responsive">
                             <table class="table" style="border:solid">
                                 <thead>
@@ -101,13 +118,13 @@
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/app.js"></script>
-    <script language="JavaScript">
+   <!-- <script language="JavaScript">
     validateLogin(function (result) {
         if (!result) {
             window.location.replace("../login");
         }
     });
-    </script>
+    </script>-->
 
     <!--Author: Kaan/Luca -->
     <script language="JavaScript">
@@ -121,8 +138,6 @@
                 $("#email").val(data.email)
             });
             
-
-
             $("#ZIPCode").focusout("input", function(event){
                 if($("#ZIPCode").val() <1000){
                     $("#ZipCodeRestraint").removeAttr("hidden");
@@ -146,7 +161,7 @@
                 }
             });
 
-
+            //Profile edit
             $("#ProfileBtn").click(function (event) {
                 putProfile($("#name").val(), $("#street").val(), $("#ZIPCode").val(), $("#city").val(), $("#email").val(), $("#password").val(), function (result) {
                     window.location.replace("/home");
@@ -158,6 +173,22 @@
 
 
             //Deletion
+            $("#Deletion").on("input", function (event){
+                if($("#Deletion").val() === "DELETION") {
+                    $("#DeleteBtn").prop("disabled", false);
+                } else {
+                    $("#DeleteBtn").prop("disabled", true);
+                }
+            });
+
+            $("#DeleteBtn").click(function(){
+                deleteUser(function(result){
+                    if(result){
+                        window.location.replace("../login");
+                    }
+                });
+            });
+                
 
 
             //Author: Luca
