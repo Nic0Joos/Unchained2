@@ -75,7 +75,6 @@
                                 </tbody>
                             </table>
                         </div>
-
             </div>
         </section>
     </main>
@@ -152,7 +151,7 @@
                     $("#ZipCodeRestraint").removeAttr("hidden");
                     $("#RegisterBtn").prop("disabled", true);
                 } else {
-                    $("#ZipCodeRestraint").attr("hidden")
+                    $("#ZipCodeRestraint").hide();
                     $("#RegisterBtn").prop("disabled", false);
                 }
             });
@@ -162,7 +161,7 @@
                     $("#PasswordLength").removeAttr("hidden");
                     $("#RegisterBtn").prop("disabled", true);
                 } else {
-                    $("#PasswordLength").attr("hidden")
+                    $("#PasswordLength").hide();
                     $("#RegisterBtn").prop("disabled", false);
                 }
             });
