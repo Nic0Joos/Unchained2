@@ -5,3 +5,13 @@ Unchained is a shipping cost calculator programmed in Java with the help of Spri
 
 ## Installation
 To get the application running, you must have Java 1.8 and Maven installed locally. The program will then run on your localhost server, which can be accessed by using a browser and entering: "localhost:8080"
+
+## Start the application
+1) Unzip the “Unchained2.zip” file
+2) Open IntelliJ
+3) Click “file” -> “new” -> “Project from existing sources” and then load in the unzipped folder
+4) Make sure JDK 1.8 is installed
+5) Build the project
+6) Click “Add Configuration” and select “ACRMWebApplication”
+7) Run the project
+8) Open “localhost:8080” in your browser
