@@ -171,15 +171,18 @@
             $("#Deletion").on("input", function (event){
                 var DeletionString = "DELETION";
                 if($("#Deletion").val().trim() === DeletionString) {
-                    $("#DeleteBtn").prop("disabled", false);
+                    $("#DeletionBtn").prop("disabled", false);
+                    console.log($("#Deletion").val().trim() === DeletionString);
                 } else {
-                    $("#DeleteBtn").prop("disabled", true);
+                    $("#DeletionBtn").prop("disabled", true);
+                    console.log($("#Deletion").val().trim() === DeletionString);
                 }
             });
 
-            $("#DeleteBtn").click(function(){
+            $("#DeletionBtn").click(function(){
                 deleteUser(function(result){
                     if(result){
+                        console.log(result);
                         window.location.replace("../login");
                     }
                 });

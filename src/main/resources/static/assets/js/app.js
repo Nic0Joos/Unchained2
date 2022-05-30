@@ -183,7 +183,7 @@ function putProfile(name, street, ZIPCode, city, email, password, callbackSucces
     });
 }
 
-function deleteCustomer(callback) {
+function deleteUser(callback) {
     $.ajax({
         type: "DELETE",
         headers: {
@@ -191,11 +191,10 @@ function deleteCustomer(callback) {
         },
         url: serviceEndpointURL + "/profile/delete",
         success: function (result) {
-            callback(result);
+            callback(true);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.log(jqXHR, textStatus, errorThrown);
         }
     });
 }
-
