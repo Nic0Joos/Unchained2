@@ -49,6 +49,35 @@
                 </div>
             </div>
         </section>
+        <section class="clean-block features">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Order Overview</h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box">
+                        <h4>My Orders</h4>
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Amount of A</th>
+                                        <th>Amount of B</th>
+                                        <th>Amount of C</th>
+                                        <th>Amount of D</th>
+                                        <th>Shipping</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableData">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <footer class="page-footer dark">
         <div class="container">
@@ -92,6 +121,27 @@
                 $("#city").val(data.city)
                 $("#email").val(data.email)
             });
+
+            $(loadData());
+
+            function loadData() {
+                getOrders(function (data) {
+                    $("#tableData").empty();
+                    $.each(data, function (i, item) {
+                        $("#tableData").append(
+                            $("<tr>").append(
+                                $("<td>").text(item.orderId),
+                                $("<td>").text(item.amountA),
+                                $("<td>").text(item.amountB),
+                                $("<td>").text(item.amountC),
+                                $("<td>").text(item.amountD),
+                                $("<td>").text(item.shippingCost),
+                                $("<td>").text(item.orderPrice)
+                            )
+                        );
+                    });
+                });
+            }
 
 
             $("#ProfileBtn").click(function (event) {

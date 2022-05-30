@@ -125,8 +125,8 @@ function postOrder(AmountProductA, AmountProductB, AmountProductC, AmountProduct
     });
 }
 
-//Author: Kaan
-function getProducts(callback) {
+//Author: Luca
+function getOrders(callback) {
     $.ajax({
         type: "GET",
         dataType: "json",
