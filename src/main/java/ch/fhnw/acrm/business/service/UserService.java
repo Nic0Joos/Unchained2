@@ -1,6 +1,5 @@
 package ch.fhnw.acrm.business.service;
 
-import ch.fhnw.acrm.data.domain.Ordering;
 import ch.fhnw.acrm.data.domain.UnchainedUser;
 
 import ch.fhnw.acrm.data.repository.UserRepository;
@@ -30,7 +29,7 @@ public class UserService {
 
 
     public void saveUser(@Valid UnchainedUser unchainedUser) throws Exception {
-        if (unchainedUser.getUserId() == null) {
+        if (unchainedUser.getId() == null) {
             if (userRepository.findByEmail(unchainedUser.getEmail()) != null ) {
                 throw new Exception("User email already exists!");
             }

@@ -105,7 +105,10 @@
                             <h4><span class="feature">Product Costs: CHF&nbsp;</span><span id="ProductPrice"></span></h4>
                             <h4><span class="feature">The total is: CHF&nbsp;</span><span id="Totalprice"></span></h4>
                             <div class="text-center price"><button class="btn btn-primary btn-lg" type="button" id="CalculateBtn" name="CalculateBtn">Calculate Costs</button></div>
-                            <div class="text-center price"><button class="btn btn-primary btn-lg" hidden type="button" id="OrderBtn" name="OrderBtn">Order</button></div>
+                            <div class="text-center price">
+                                <button class="btn btn-light" hidden type="button" id="CancelBtn">Cancel</button>
+                                <button class="btn btn-primary btn-lg" hidden type="button" id="OrderBtn" name="OrderBtn">Order</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,11 +147,11 @@
     });
     </script>
 
-    <!--Author: Luca(InputValidation) Nico(Math) -->
+    <!--Author: Luca(Order) Nico(Costrequest / InputValidation) -->
     <script>
         $(document).ready(function () {
 
-            $("#Amount_ProductA").on("input", function(){
+            $("#Amount_ProductA").focusout(function(){
                 if($("#Amount_ProductA").val() >250) {
                     $("#Warning_ProductA").html("Can't be more than 250!")
                     $("#Warning_ProductA").removeAttr("hidden");
@@ -163,7 +166,7 @@
                 }
             });
 
-            $("#Amount_ProductB").on("input", function(){
+            $("#Amount_ProductB").focusout(function(){
                 if($("#Amount_ProductB").val() >60) {
                     $("#Warning_ProductB").html("Can't be more than 60!")
                     $("#Warning_ProductB").removeAttr("hidden");
@@ -178,7 +181,7 @@
                 }
             });
 
-            $("#Amount_ProductC").on("input", function(){
+            $("#Amount_ProductC").focusout(function(){
                 if($("#Amount_ProductC").val() >60) {
                     $("#Warning_ProductC").html("Can't be more than 60!")
                     $("#Warning_ProductC").removeAttr("hidden");
@@ -193,7 +196,7 @@
                 }
             });
 
-            $("#Amount_ProductD").on("input", function(){
+            $("#Amount_ProductD").focusout(function(){
                 if($("#Amount_ProductD").val() >1500) {
                     $("#Warning_ProductD").html("Can't be more than 1500!")
                     $("#Warning_ProductD").removeAttr("hidden");
@@ -226,6 +229,7 @@
                     $("#Totalprice").html(parseFloat(data.price + ProductPrice).toFixed(2));
                     if(result) {
                         $("#CalculateBtn").hide();
+                        $("#CancelBtn").removeAttr("hidden");
                         $("#OrderBtn").removeAttr("hidden");
                         $("#Amount_ProductA").prop('disabled', true);
                         $("#Amount_ProductB").prop('disabled', true);
@@ -235,6 +239,12 @@
                 });
             });
 
+            $("#CancelBtn").click(function(event){
+                window.location.reload();
+            });
+
+
+            //Start Luca
 
             $("#OrderBtn").click(function(event){
                 var AmountProductA = $("#Amount_ProductA").val();
