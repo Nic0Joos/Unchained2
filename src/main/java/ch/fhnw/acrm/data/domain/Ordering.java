@@ -17,7 +17,7 @@ public class Ordering {
     private String amountD;
     private String shippingCost;
     private String orderPrice;
-    @OneToOne
+    @ManyToOne
     @JsonIgnore
     private UnchainedUser user;
 

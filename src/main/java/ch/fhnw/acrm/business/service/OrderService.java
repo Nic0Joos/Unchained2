@@ -31,11 +31,6 @@ public class OrderService {
 
 
     public List<Ordering> findAllOrders() {
-        List<Ordering> OrderList = new ArrayList<>();
-
-        for (Ordering order: orderRepository.findAll()) {
-            OrderList.add(order);
-        }
-        return OrderList;
+        return orderRepository.findByUserId(userService.getCurrentUser().getUserId());
     }
 }
