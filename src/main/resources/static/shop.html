@@ -151,7 +151,7 @@
     <script>
         $(document).ready(function () {
 
-            $("#Amount_ProductA").on("input", function(){
+            $("#Amount_ProductA").focusout(function(){
                 if($("#Amount_ProductA").val() >250) {
                     $("#Warning_ProductA").html("Can't be more than 250!")
                     $("#Warning_ProductA").removeAttr("hidden");
@@ -166,7 +166,7 @@
                 }
             });
 
-            $("#Amount_ProductB").on("input", function(){
+            $("#Amount_ProductB").focusout(function(){
                 if($("#Amount_ProductB").val() >60) {
                     $("#Warning_ProductB").html("Can't be more than 60!")
                     $("#Warning_ProductB").removeAttr("hidden");
@@ -181,7 +181,7 @@
                 }
             });
 
-            $("#Amount_ProductC").on("input", function(){
+            $("#Amount_ProductC").focusout(function(){
                 if($("#Amount_ProductC").val() >60) {
                     $("#Warning_ProductC").html("Can't be more than 60!")
                     $("#Warning_ProductC").removeAttr("hidden");
@@ -196,7 +196,7 @@
                 }
             });
 
-            $("#Amount_ProductD").on("input", function(){
+            $("#Amount_ProductD").focusout(function(){
                 if($("#Amount_ProductD").val() >1500) {
                     $("#Warning_ProductD").html("Can't be more than 1500!")
                     $("#Warning_ProductD").removeAttr("hidden");
@@ -243,6 +243,8 @@
                 window.location.reload();
             });
 
+
+            //Start Luca
 
             $("#OrderBtn").click(function(event){
                 var AmountProductA = $("#Amount_ProductA").val();

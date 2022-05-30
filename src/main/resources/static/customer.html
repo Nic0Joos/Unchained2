@@ -41,9 +41,11 @@
                             <div class="mb-3"><label class="form-label" for="name">Name</label><input class="form-control" type="text" id="name" name="name"></div>
                             <div class="mb-3"><label class="form-label" for="street">Street</label><input class="form-control" type="text" id="street" name="street"></div>
                             <div class="mb-3"><label class="form-label" for="ZIPCode">ZIPCode</label><input class="form-control" type="number" id="ZIPCode" name="ZIPCode"></div>
+                            <p hidden id="ZipCodeRestraint" style="color:red">ZIP must be between 1000 and 9999!</p>
                             <div class="mb-3"><label class="form-label" for="city">City</label><input class="form-control" type="text" id="city" name="city"></div>
                             <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email" inputmode="email"></div>
                             <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password"></div>
+                            <p hidden id="PasswordLength" style="color:red">Please provide a password that has at least 8 characters!</p>
                         </form><button id="ProfileBtn" class="btn btn-primary" type="submit">Save changes</button>
                     </div>
                 </div>
@@ -108,7 +110,7 @@
     });
     </script>
 
-    <!--Author: Kaan -->
+    <!--Author: Kaan/Luca -->
     <script language="JavaScript">
         $(document).ready(function () {
 
@@ -119,7 +121,8 @@
                 $("#city").val(data.city)
                 $("#email").val(data.email)
             });
-
+            
+            //Author: Luca
             $(loadData());
 
             function loadData() {
@@ -139,7 +142,30 @@
                         );
                     });
                 });
-            }
+            };
+
+            $("#ZIPCode").focusout("input", function(event){
+                if($("#ZIPCode").val() <1000){
+                    $("#ZipCodeRestraint").removeAttr("hidden");
+                    $("#RegisterBtn").prop("disabled", true);
+                } else if($("#ZIPCode").val() >9999) {
+                    $("#ZipCodeRestraint").removeAttr("hidden");
+                    $("#RegisterBtn").prop("disabled", true);
+                } else {
+                    $("#ZipCodeRestraint").attr("hidden")
+                    $("#RegisterBtn").prop("disabled", false);
+                }
+            });
+
+            $("#password").focusout(function(event){
+                if($("#password").val().length <8){
+                    $("#PasswordLength").removeAttr("hidden");
+                    $("#RegisterBtn").prop("disabled", true);
+                } else {
+                    $("#PasswordLength").attr("hidden")
+                    $("#RegisterBtn").prop("disabled", false);
+                }
+            });
 
 
             $("#ProfileBtn").click(function (event) {
