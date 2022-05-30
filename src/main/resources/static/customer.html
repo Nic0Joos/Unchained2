@@ -50,9 +50,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <section class="clean-block features">
+
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Profile deletion</h2>
@@ -60,16 +58,13 @@
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-5 feature-box">
-                        <h4>Delete your profile</h4>         
+                        <h4>Delete your profile</h4>
                             <div class="mb-3"><input class="form-control" type="text" id="Deletion" name="Deletion"></div>
                             <button id="DeletionBtn" disabled class="btn btn-primary" type="submit">Delete my profile</button>
                     </div>
                 </div>
             </div>
-        </section>
 
-
-        <section class="clean-block features">
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Order Overview</h2>
@@ -174,7 +169,8 @@
 
             //Deletion
             $("#Deletion").on("input", function (event){
-                if($("#Deletion").val() === "DELETION") {
+                var DeletionString = "DELETION";
+                if($("#Deletion").val().trim() === DeletionString) {
                     $("#DeleteBtn").prop("disabled", false);
                 } else {
                     $("#DeleteBtn").prop("disabled", true);
