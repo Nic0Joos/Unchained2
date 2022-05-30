@@ -45,6 +45,10 @@ public class UserService {
         return userRepository.findByEmail(user.getUsername());
     }
 
+    public void deleteUser(Long Id) {
+        userRepository.deleteById(Id);
+    }
+
 
     public List<UnchainedUser> findAllUsers() {
         List<UnchainedUser> List = new ArrayList<>();

@@ -121,27 +121,7 @@
                 $("#email").val(data.email)
             });
             
-            //Author: Luca
-            $(loadData());
 
-            function loadData() {
-                getOrders(function (data) {
-                    $("#tableData").empty();
-                    $.each(data, function (i, item) {
-                        $("#tableData").append(
-                            $("<tr>").append(
-                                $("<td>").text(item.orderId),
-                                $("<td>").text(item.amountA),
-                                $("<td>").text(item.amountB),
-                                $("<td>").text(item.amountC),
-                                $("<td>").text(item.amountD),
-                                $("<td>").text(item.shippingCost),
-                                $("<td>").text(item.orderPrice)
-                            )
-                        );
-                    });
-                });
-            };
 
             $("#ZIPCode").focusout("input", function(event){
                 if($("#ZIPCode").val() <1000){
@@ -175,6 +155,34 @@
                 });
                 event.preventDefault();
             });
+
+
+            //Deletion
+
+
+            //Author: Luca
+            $(loadData());
+            function loadData() {
+                getOrders(function (data) {
+                    $("#tableData").empty();
+                    $.each(data, function (i, item) {
+                        $("#tableData").append(
+                            $("<tr>").append(
+                                $("<td>").text(item.orderId),
+                                $("<td>").text(item.amountA),
+                                $("<td>").text(item.amountB),
+                                $("<td>").text(item.amountC),
+                                $("<td>").text(item.amountD),
+                                $("<td>").text(item.shippingCost),
+                                $("<td>").text(item.orderPrice)
+                            )
+                        );
+                    });
+                });
+            };
+
+
+
         });
     </script>
 

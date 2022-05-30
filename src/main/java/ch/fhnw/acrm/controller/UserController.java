@@ -50,6 +50,19 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping(path="/profile/delete")
+    public ResponseEntity<Void> deleteCustomer() {
+        Long UserId = userService.getCurrentUser().getId();
+        try {
+            userService.deleteUser(UserId);
+            LoggerService.logUser("User with ID: " + UserId + " was deleted!");
+        } catch (Exception e) {
+            LoggerService.logSystem("warning", "Deletion failed: " + e.toString());
+            throw new ResponseStatusException(HttpStatus.NOT_ACCEPTABLE, e.getMessage());
+        }
+        return ResponseEntity.accepted().build();
+    }
+
     @GetMapping(path = "/profile/edit", produces = "application/json")
     public @ResponseBody UnchainedUser getProfile() {
         return userService.getCurrentUser();

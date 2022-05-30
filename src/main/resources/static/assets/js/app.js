@@ -183,3 +183,19 @@ function putProfile(name, street, ZIPCode, city, email, password, callbackSucces
     });
 }
 
+function deleteCustomer(callback) {
+    $.ajax({
+        type: "DELETE",
+        headers: {
+            "X-XSRF-TOKEN": getCookie("XSRF-TOKEN")
+        },
+        url: serviceEndpointURL + "/profile/delete",
+        success: function (result) {
+            callback(result);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(jqXHR, textStatus, errorThrown);
+        }
+    });
+}
+
