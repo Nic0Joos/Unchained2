@@ -36,8 +36,9 @@
                     <div class="mb-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" name="remember"><label class="form-check-label" for="formCheck-1">Remember me</label></div></div>
                     <div class="mb-3"><a href="/register">Want to create an account instead?</a></div>
                     <div class="mb-3"><button class="btn btn-primary" type="submit">Send</button></div>
+                    <br>
+                    <p id="ErrorMessage" style="color:red;display:none;">The password was wrong!</p>
                 </form>
-                <p id="ErrorMessage" style="color:red">The password was wrong!</p>
             </div>
         </section>
     </main>
@@ -76,7 +77,7 @@
                     console.log(result);
                         window.location.replace("../");
                     } else {
-                        $("#ErrorMessage").removeattr("hidden");
+                        $("#ErrorMessage").show(500).delay(2000).fadeOut(500);
                     }
                 });
                 event.preventDefault();
