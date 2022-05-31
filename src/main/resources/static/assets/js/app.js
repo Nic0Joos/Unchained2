@@ -63,7 +63,7 @@ function login(email, password, remember, callback) {
     });
 }
 
-//Copied from Internet Technology module
+//Author: Alex
 function validateLogin(callback) {
     $.ajax({
         type: "HEAD",
