@@ -45,7 +45,7 @@
                             <div class="mb-3"><label class="form-label" for="city">City</label><input class="form-control" type="text" id="city" name="city"></div>
                             <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email" inputmode="email"></div>
                             <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password"></div>
-                            <p hidden id="PWInfo" style="color:red">Please provide a password that has at least 8 characters!</p>
+                            <p id="PWInfo">Please provide a password that has at least 8 characters!</p>
                         </form><button id="ProfileBtn" class="btn btn-primary" type="submit">Save changes</button>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Profile deletion</h2>
-                    <p>To delete your profile, please type <strong>DELETION</strong> below</p>
+                    <p>To delete your profile, please type <strong>DELETION</strong> below:</p><br>
                     <p><strong>Note:</strong> Deletion is not possible if you have created an order.</p>
                 </div>
                 <div class="row justify-content-center">
@@ -149,10 +149,8 @@
 
             $("#password").focusout(function(event){
                 if($("#password").val().length <8){
-                    $("#PWInfo").removeAttr("hidden");
                     $("#ProfileBtn").prop("disabled", true);
                 } else {
-                    $("#PWInfo").hide();
                     $("#ProfileBtn").prop("disabled", false);
                 }
             });
