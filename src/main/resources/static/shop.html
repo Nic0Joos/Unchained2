@@ -133,8 +133,8 @@
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>-->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/app.js"></script>
@@ -161,7 +161,7 @@
                     $("#Warning_ProductA").removeAttr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else {
-                    $("#Warning_ProductA").attr("hidden");
+                    $("#Warning_ProductA").hide();
                     $("#CalculateBtn").prop("disabled", false);
                 }
             });
@@ -176,7 +176,7 @@
                     $("#Warning_ProductB").removeAttr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else {
-                    $("#Warning_ProductB").attr("hidden");
+                    $("#Warning_ProductB").hide();
                     $("#CalculateBtn").prop("disabled", false);
                 }
             });
@@ -191,7 +191,7 @@
                     $("#Warning_ProductC").attr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else {
-                    $("#Warning_ProductC").attr("hidden");
+                    $("#Warning_ProductC").hide();
                     $("#CalculateBtn").prop("disabled", false);
                 }
             });
@@ -206,7 +206,7 @@
                     $("#Warning_ProductD").attr("hidden");
                     $("#CalculateBtn").prop("disabled", true);
                 } else {
-                    $("#Warning_ProductD").attr("hidden");
+                    $("#Warning_ProductD").hide();
                     $("#CalculateBtn").prop("disabled", false);
                 }
             });

@@ -45,19 +45,32 @@
                             <div class="mb-3"><label class="form-label" for="city">City</label><input class="form-control" type="text" id="city" name="city"></div>
                             <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email" inputmode="email"></div>
                             <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password"></div>
-                            <p hidden id="PasswordLength" style="color:red">Please provide a password that has at least 8 characters!</p>
+                            <p id="PWInfo">Please provide a password that has at least 8 characters!</p>
                         </form><button id="ProfileBtn" class="btn btn-primary" type="submit">Save changes</button>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="clean-block features">
+
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Profile deletion</h2>
+                    <p>To delete your profile, please type <strong>DELETION</strong> below:</p><br>
+                    <p><strong>Note:</strong> Deletion is not possible if you have created an order.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 feature-box">
+                        <h4>Delete your profile</h4>
+                            <div class="mb-3"><input class="form-control" type="text" id="Deletion" name="Deletion"></div>
+                            <button id="DeletionBtn" disabled class="btn btn-primary" type="submit">Delete my profile</button>
+                    </div>
+                </div>
+            </div>
+
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Order Overview</h2>
                 </div>
-
-                        <h4>My Orders</h4>
+                    <h4>My Orders</h4>
                         <div class="table-responsive">
                             <table class="table" style="border:solid">
                                 <thead>
@@ -75,7 +88,6 @@
                                 </tbody>
                             </table>
                         </div>
-
             </div>
         </section>
     </main>
@@ -97,18 +109,18 @@
         </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>-->
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/vanilla-zoom.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/app.js"></script>
-    <script language="JavaScript">
+   <!-- <script language="JavaScript">
     validateLogin(function (result) {
         if (!result) {
             window.location.replace("../login");
         }
     });
-    </script>
+    </script>-->
 
     <!--Author: Kaan/Luca -->
     <script language="JavaScript">
@@ -122,9 +134,63 @@
                 $("#email").val(data.email)
             });
             
+            $("#ZIPCode").focusout("input", function(event){
+                if($("#ZIPCode").val() <1000){
+                    $("#ZipCodeRestraint").removeAttr("hidden")
+                    $("#ProfileBtn").prop("disabled", true);
+                } else if($("#ZIPCode").val() >9999) {
+                    $("#ZipCodeRestraint").removeAttr("hidden");
+                    $("#ProfileBtn").prop("disabled", true);
+                } else {
+                    $("#ZipCodeRestraint").hide();
+                    $("#ProfileBtn").prop("disabled", false);
+                }
+            });
+
+            $("#password").focusout(function(event){
+                if($("#password").val().length <8){
+                    $("#ProfileBtn").prop("disabled", true);
+                } else {
+                    $("#ProfileBtn").prop("disabled", false);
+                }
+            });
+
+            //Profile edit
+            $("#ProfileBtn").click(function (event) {
+                putProfile($("#name").val(), $("#street").val(), $("#ZIPCode").val(), $("#city").val(), $("#email").val(), $("#password").val(), function (result) {
+                    window.location.replace("/home");
+                }, function (error) {
+                    window.alert("Something went wrong!");
+                });
+                event.preventDefault();
+            });
+
+
+            //Deletion
+            $("#Deletion").on("input", function (event){
+                var DeletionString = "DELETION";
+                if($("#Deletion").val().trim() === DeletionString) {
+                    $("#DeletionBtn").prop("disabled", false);
+                    console.log($("#Deletion").val().trim() === DeletionString);
+                } else {
+                    $("#DeletionBtn").prop("disabled", true);
+                    console.log($("#Deletion").val().trim() === DeletionString);
+                }
+            });
+
+            $("#DeletionBtn").click(function(){
+                deleteUser(function(result){
+                    if(result){
+                        console.log(result);
+                        window.location.replace("../login");
+                    }
+                });
+            });
+                
+
+
             //Author: Luca
             $(loadData());
-
             function loadData() {
                 getOrders(function (data) {
                     $("#tableData").empty();
@@ -144,38 +210,8 @@
                 });
             };
 
-            $("#ZIPCode").focusout("input", function(event){
-                if($("#ZIPCode").val() <1000){
-                    $("#ZipCodeRestraint").removeAttr("hidden");
-                    $("#RegisterBtn").prop("disabled", true);
-                } else if($("#ZIPCode").val() >9999) {
-                    $("#ZipCodeRestraint").removeAttr("hidden");
-                    $("#RegisterBtn").prop("disabled", true);
-                } else {
-                    $("#ZipCodeRestraint").attr("hidden")
-                    $("#RegisterBtn").prop("disabled", false);
-                }
-            });
-
-            $("#password").focusout(function(event){
-                if($("#password").val().length <8){
-                    $("#PasswordLength").removeAttr("hidden");
-                    $("#RegisterBtn").prop("disabled", true);
-                } else {
-                    $("#PasswordLength").attr("hidden")
-                    $("#RegisterBtn").prop("disabled", false);
-                }
-            });
 
 
-            $("#ProfileBtn").click(function (event) {
-                putProfile($("#name").val(), $("#street").val(), $("#ZIPCode").val(), $("#city").val(), $("#email").val(), $("#password").val(), function (result) {
-                    window.location.replace("/home");
-                }, function (error) {
-                    window.alert("Something went wrong!");
-                });
-                event.preventDefault();
-            });
         });
     </script>
 

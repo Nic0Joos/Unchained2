@@ -38,7 +38,7 @@
                     <div class="mb-3"><label class="form-label" for="city">City</label><input class="form-control" type="text" id="city" name="city"></div>
                     <div class="mb-3"><label class="form-label" for="email">Email</label><input class="form-control" type="email" id="email" name="email" inputmode="email"></div>
                     <div class="mb-3"><label class="form-label" for="password">Password</label><input class="form-control" type="password" id="password" name="password"></div>
-                    <p hidden id="PasswordLength" style="color:red">Please provide a password that has at least 8 characters!</p>
+                    <p id="PasswordLength" style="color:red">Please provide a password that has at least 8 characters!</p>
                     <div class="mb-3"><button id="RegisterBtn" class="btn btn-primary" type="submit">Send</button></div>
                 </form>
             </div>
@@ -78,17 +78,15 @@
                     $("#ZipCodeRestraint").removeAttr("hidden");
                     $("#RegisterBtn").prop("disabled", true);
                 } else {
-                    $("#ZipCodeRestraint").attr("hidden")
+                    $("#ZipCodeRestraint").hide();
                     $("#RegisterBtn").prop("disabled", false);
                 }
             });
 
             $("#password").focusout(function(event){
                 if($("#password").val().length <8){
-                    $("#PasswordLength").removeAttr("hidden");
                     $("#RegisterBtn").prop("disabled", true);
                 } else {
-                    $("#PasswordLength").attr("hidden")
                     $("#RegisterBtn").prop("disabled", false);
                 }
             });
