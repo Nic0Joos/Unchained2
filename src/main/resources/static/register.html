@@ -83,7 +83,7 @@
                 }
             });
 
-            $("#password").focusout(function(event){
+            $("#password").on("input", function(event){
                 if($("#password").val().length <8){
                     $("#RegisterBtn").prop("disabled", true);
                 } else {
