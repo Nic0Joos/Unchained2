@@ -1,0 +1,14 @@
+Mai 30, 2022 5:34:33 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+INFORMATION: Order created with ID: 3
+Mai 31, 2022 1:18:38 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+WARNUNG: java.lang.Exception: Uncommon ZIPCode: 10004
+Mai 31, 2022 1:19:19 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+INFORMATION: Order created with ID: 3
+Juni 01, 2022 1:43:51 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+WARNUNG: Costrequest failed: java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 12
+Juni 01, 2022 1:43:56 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+WARNUNG: Order couldn't be processed: java.lang.Exception: Shipping costs cannot be below 0
+Juni 01, 2022 1:43:57 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+WARNUNG: Order couldn't be processed: java.lang.Exception: Shipping costs cannot be below 0
+Juni 01, 2022 3:49:07 NACHM. ch.fhnw.acrm.business.service.LoggerService logSystem
+WARNUNG: java.lang.Exception: User email already exists!
