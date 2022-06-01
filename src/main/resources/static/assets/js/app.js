@@ -63,7 +63,7 @@ function login(email, password, remember, callback) {
     });
 }
 
-//Author: Alex
+//Author: Lennart
 function validateLogin(callback) {
     $.ajax({
         type: "HEAD",
