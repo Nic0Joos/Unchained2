@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
 //Copied from https://github.com/MathisHermann/TimBan
-//Adjusted to append: Nico
+//Adjusted to append: Lennart
 
 @Service
 public class LoggerService {
