@@ -10,8 +10,10 @@ To get the application running, you must have Java 1.8 and Maven installed local
 1) Unzip the sent ZIP file
 2) Open IntelliJ
 3) Click “file” -> “new” -> “Project from existing sources” and then load in the unzipped folder
-4) Make sure JDK 1.8 is installed
-5) Build the project
-6) Click “Add Configuration” and select “ACRMWebApplication”
-7) Run the project
-8) Open “localhost:8080” in your browser
+4) Select "import project from external model"
+5) Select "Maven"
+6) Make sure JDK 1.8 is installed
+7) Build the project
+8) Click “Add Configuration” and select “ACRMWebApplication”
+9) Run the project
+10) Open “localhost:8080” in your browser
